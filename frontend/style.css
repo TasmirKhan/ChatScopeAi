@@ -1,0 +1,298 @@
+:root {
+  --ink: #171933;
+  --ink-2: #1D2044;
+  --panel: #22254A;
+  --paper: #EDE8DA;
+  --muted: #8D91B8;
+  --marigold: #E8A33D;
+  --marigold-dim: #B37F2B;
+  --rose: #C1546B;
+  --line: #34375C;
+  --danger: #D96C6C;
+}
+
+* { box-sizing: border-box; }
+
+html, body {
+  margin: 0;
+  padding: 0;
+  background: var(--ink);
+  color: var(--paper);
+  font-family: 'IBM Plex Sans', sans-serif;
+}
+
+.wrap {
+  max-width: 760px;
+  margin: 0 auto;
+  padding: 2rem 1.5rem 5rem;
+}
+
+/* ---------- top bar ---------- */
+.topbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  padding-bottom: 2.5rem;
+  border-bottom: 1px solid var(--line);
+  margin-bottom: 2.5rem;
+}
+
+.wordmark {
+  font-family: 'Fraunces', serif;
+  font-size: 1.15rem;
+  font-weight: 500;
+  letter-spacing: 0.01em;
+}
+.wordmark em { color: var(--marigold); font-style: normal; }
+
+.topbar-stats {
+  font-size: 0.8rem;
+  color: var(--muted);
+}
+
+/* ---------- hero ---------- */
+.hero h1 {
+  font-family: 'Fraunces', serif;
+  font-weight: 500;
+  font-size: 2.3rem;
+  line-height: 1.18;
+  margin: 0 0 0.9rem;
+  max-width: 20ch;
+}
+
+.hero-sub {
+  color: var(--muted);
+  font-size: 0.98rem;
+  line-height: 1.55;
+  max-width: 52ch;
+  margin: 0 0 1.75rem;
+}
+
+.search-form {
+  display: flex;
+  gap: 0.6rem;
+  margin-bottom: 1rem;
+}
+
+.search-form input[type="text"] {
+  flex: 1;
+  background: var(--panel);
+  border: 1px solid var(--line);
+  color: var(--paper);
+  font-family: 'IBM Plex Sans', sans-serif;
+  font-size: 1rem;
+  padding: 0.85rem 1rem;
+  border-radius: 6px;
+  outline: none;
+}
+.search-form input[type="text"]::placeholder { color: var(--muted); }
+.search-form input[type="text"]:focus {
+  border-color: var(--marigold);
+  box-shadow: 0 0 0 2px rgba(232, 163, 61, 0.25);
+}
+
+.search-form button {
+  background: var(--marigold);
+  color: #241704;
+  border: none;
+  font-family: 'IBM Plex Sans', sans-serif;
+  font-weight: 600;
+  font-size: 0.95rem;
+  padding: 0 1.5rem;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: background 0.15s ease;
+}
+.search-form button:hover { background: #f2b256; }
+.search-form button:active { transform: translateY(1px); }
+
+/* ---------- filters ---------- */
+.filters {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.5rem;
+  margin-bottom: 2.25rem;
+}
+
+.filters select,
+.filters input[type="date"] {
+  background: transparent;
+  border: 1px solid var(--line);
+  color: var(--paper);
+  font-family: 'IBM Plex Sans', sans-serif;
+  font-size: 0.82rem;
+  padding: 0.4rem 0.6rem;
+  border-radius: 5px;
+}
+.filters select:focus, .filters input[type="date"]:focus { outline: 1px solid var(--marigold); }
+
+.filter-sep { color: var(--muted); font-size: 0.8rem; }
+
+.ghost-btn {
+  background: transparent;
+  border: none;
+  color: var(--muted);
+  font-family: 'IBM Plex Sans', sans-serif;
+  font-size: 0.8rem;
+  cursor: pointer;
+  text-decoration: underline;
+  text-underline-offset: 2px;
+  padding: 0.3rem 0;
+}
+.ghost-btn:hover { color: var(--paper); }
+
+/* ---------- decision threads row ---------- */
+.threads-row {
+  margin-bottom: 2.5rem;
+  padding-bottom: 2rem;
+  border-bottom: 1px solid var(--line);
+}
+
+.threads-label {
+  font-size: 0.78rem;
+  color: var(--muted);
+  margin-bottom: 0.7rem;
+}
+
+.thread-chips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.6rem;
+}
+
+.thread-chip {
+  background: var(--panel);
+  border: 1px solid var(--line);
+  color: var(--paper);
+  font-family: 'IBM Plex Sans', sans-serif;
+  font-size: 0.85rem;
+  padding: 0.55rem 0.9rem;
+  border-radius: 6px;
+  cursor: pointer;
+  text-align: left;
+  transition: border-color 0.15s ease;
+}
+.thread-chip:hover { border-color: var(--marigold-dim); }
+.thread-chip .chip-title { font-weight: 500; }
+.thread-chip .chip-meta { display: block; color: var(--muted); font-size: 0.74rem; margin-top: 0.15rem; }
+
+/* ---------- status line ---------- */
+.status-line {
+  font-size: 0.82rem;
+  color: var(--muted);
+  margin-bottom: 1rem;
+  min-height: 1.2em;
+}
+.status-line.error { color: var(--danger); }
+
+.back-link {
+  background: none;
+  border: none;
+  color: var(--marigold);
+  font-family: 'IBM Plex Sans', sans-serif;
+  font-size: 0.85rem;
+  cursor: pointer;
+  padding: 0;
+  margin-bottom: 1rem;
+  text-decoration: underline;
+  text-underline-offset: 2px;
+}
+
+/* ---------- results / transcript ---------- */
+.results {
+  display: flex;
+  flex-direction: column;
+}
+
+.msg-row {
+  padding: 1.1rem 0;
+  border-bottom: 1px solid var(--line);
+  animation: fadein 0.25s ease both;
+}
+.msg-row:last-child { border-bottom: none; }
+
+@keyframes fadein {
+  from { opacity: 0; transform: translateY(4px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.msg-row.decision {
+  border-left: 3px solid var(--rose);
+  padding-left: 1rem;
+  margin-left: -1rem;
+}
+
+.msg-head {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  margin-bottom: 0.35rem;
+  flex-wrap: wrap;
+}
+
+.avatar {
+  width: 26px;
+  height: 26px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.68rem;
+  font-weight: 600;
+  color: var(--ink);
+  flex-shrink: 0;
+}
+
+.sender-name {
+  font-weight: 500;
+  font-size: 0.9rem;
+}
+
+.msg-meta {
+  color: var(--muted);
+  font-size: 0.76rem;
+}
+
+.decision-tag {
+  color: var(--rose);
+  font-size: 0.72rem;
+  font-weight: 500;
+  border: 1px solid var(--rose);
+  border-radius: 4px;
+  padding: 0.08rem 0.4rem;
+}
+
+.msg-text {
+  font-size: 0.98rem;
+  line-height: 1.55;
+  margin: 0 0 0.4rem;
+  padding-left: 2.2rem;
+}
+
+.relevance-track {
+  height: 3px;
+  width: 120px;
+  background: var(--line);
+  border-radius: 2px;
+  margin-left: 2.2rem;
+  overflow: hidden;
+}
+.relevance-fill {
+  height: 100%;
+  background: var(--marigold);
+}
+
+.empty-state {
+  color: var(--muted);
+  font-size: 0.9rem;
+  padding: 2rem 0;
+  text-align: center;
+}
+
+/* ---------- responsive ---------- */
+@media (max-width: 560px) {
+  .hero h1 { font-size: 1.7rem; }
+  .search-form { flex-direction: column; }
+  .search-form button { padding: 0.85rem; }
+}

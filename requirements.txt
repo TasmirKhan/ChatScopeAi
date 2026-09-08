@@ -1,0 +1,16 @@
+# ChatScope AI - dependencies
+# Everything here runs fully locally. No third-party LLM/embedding API keys needed.
+
+fastapi>=0.110.0
+uvicorn[standard]>=0.29.0
+pydantic>=2.6.0
+
+# Local embeddings (downloads the model weights once from HuggingFace on first
+# run, then everything is on-device - no API calls at inference time)
+sentence-transformers>=2.6.0
+torch>=2.2.0
+
+# Local vector index
+faiss-cpu>=1.8.0
+
+numpy>=1.26.0

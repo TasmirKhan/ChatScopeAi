@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>ChatScope AI — search conversations by meaning</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,wght@0,400;0,500;0,600;1,400&family=IBM+Plex+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/static/style.css" />
+</head>
+<body>
+
+<div class="wrap">
+
+  <header class="topbar">
+    <span class="wordmark">ChatScope <em>AI</em></span>
+    <span class="topbar-stats" id="topbar-stats">loading corpus…</span>
+  </header>
+
+  <section class="hero">
+    <h1>Search conversations<br>by meaning, not just keywords.</h1>
+    <p class="hero-sub">A local semantic search engine for Hinglish group chats. Ask what you're looking for the way you'd remember it — not the exact words someone typed.</p>
+
+    <form id="search-form" class="search-form" autocomplete="off">
+      <input
+        id="search-input"
+        type="text"
+        placeholder="e.g. when did we decide on the trip?"
+        aria-label="Search conversations"
+      />
+      <button type="submit">Search</button>
+    </form>
+
+    <div class="filters" id="filters">
+      <select id="filter-sender" aria-label="Filter by sender">
+        <option value="">Anyone</option>
+      </select>
+      <input id="filter-date-from" type="date" aria-label="From date" />
+      <span class="filter-sep">to</span>
+      <input id="filter-date-to" type="date" aria-label="To date" />
+      <select id="filter-topic" aria-label="Filter by topic">
+        <option value="">Any topic</option>
+      </select>
+      <button type="button" id="clear-filters" class="ghost-btn">Clear filters</button>
+    </div>
+  </section>
+
+  <section class="threads-row" aria-label="Anchored decision threads">
+    <div class="threads-label">Jump to a decision thread</div>
+    <div class="thread-chips" id="thread-chips"></div>
+  </section>
+
+  <main>
+    <div id="status-line" class="status-line"></div>
+    <div id="results" class="results"></div>
+  </main>
+
+</div>
+
+<script src="/static/app.js"></script>
+</body>
+</html>
